@@ -7,7 +7,8 @@
 		{
 			"type": "aws:ec2/subnet:Subnet",
 			"name": "public-1",
-			"id": "subnet-5281b31f"
+			"id": "subnet-5281b31f",
+			"properties": ["cidr_block","vpc_id"]
 		},
 		{
 			"type": "aws:ec2/securityGroup:SecurityGroup",
