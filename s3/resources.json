@@ -1,0 +1,23 @@
+{
+	"resources": [{
+			"type": "aws:ec2/vpc:Vpc",
+			"name": "instance-vpc",
+			"id": "vpc-0b8f3176"
+		},
+		{
+			"type": "aws:ec2/subnet:Subnet",
+			"name": "public-1",
+			"id": "subnet-5281b31f"
+		},
+		{
+			"type": "aws:ec2/securityGroup:SecurityGroup",
+			"name": "instance-sg",
+			"id": "sg-5216745c"
+		},
+		{
+			"type": "aws:ebs/volume:Volume",
+			"name": "instance-volume",
+			"id": "vol-0f25ba2340595e65a"
+		}
+	]
+}
