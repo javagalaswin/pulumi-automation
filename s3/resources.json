@@ -13,11 +13,6 @@
 			"type": "aws:ec2/securityGroup:SecurityGroup",
 			"name": "instance-sg",
 			"id": "sg-5216745c"
-		},
-		{
-			"type": "aws:ebs/volume:Volume",
-			"name": "instance-volume",
-			"id": "vol-0f25ba2340595e65a"
 		}
 	]
 }
