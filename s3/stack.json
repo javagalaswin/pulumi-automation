@@ -1,0 +1,381 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2022-11-15T20:10:22.5565792+05:30",
+            "magic": "07b8acd4d2c7b6cde5c2df1eda3fc89b41f8100c0ecbe5a0493f5a16d1c25f1e",
+            "version": "v3.45.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:8Fv0vvO8eDw=:v1:wF8iKF2kpPi5r71k:A/9Hp3Wg8JACeXc6AI1On6R1aq0ZhA=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "outputs": {
+                    "instance_id": "i-0a8a23d36b28d221d",
+                    "instance_type": "t2.micro"
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::s3::pulumi:providers:aws::default_5_20_0",
+                "custom": true,
+                "id": "1e096050-8a4e-4523-a601-c86da658f43d",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "region": "us-east-1",
+                    "version": "5.20.0"
+                },
+                "outputs": {
+                    "region": "us-east-1",
+                    "version": "5.20.0"
+                },
+                "parent": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev"
+            },
+            {
+                "urn": "urn:pulumi:dev::s3::aws:ec2/securityGroup:SecurityGroup::instance-sg",
+                "custom": true,
+                "id": "sg-5216745c",
+                "type": "aws:ec2/securityGroup:SecurityGroup",
+                "inputs": {
+                    "__defaults": [
+                        "revokeRulesOnDelete"
+                    ],
+                    "description": "default VPC security group",
+                    "egress": [
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 0,
+                            "protocol": "-1",
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "__defaults": [],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 0,
+                            "protocol": "-1",
+                            "self": true,
+                            "toPort": 0
+                        },
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 8080,
+                            "protocol": "tcp",
+                            "self": false,
+                            "toPort": 8080
+                        }
+                    ],
+                    "name": "default",
+                    "revokeRulesOnDelete": false,
+                    "vpcId": "vpc-0b8f3176"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-east-1:349935513014:security-group/sg-5216745c",
+                    "description": "default VPC security group",
+                    "egress": [
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 0,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "-1",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "id": "sg-5216745c",
+                    "ingress": [
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 0,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "-1",
+                            "securityGroups": [],
+                            "self": true,
+                            "toPort": 0
+                        },
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 8080,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "tcp",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 8080
+                        }
+                    ],
+                    "name": "default",
+                    "namePrefix": "",
+                    "ownerId": "349935513014",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-0b8f3176"
+                },
+                "parent": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev",
+                "protect": true,
+                "provider": "urn:pulumi:dev::s3::pulumi:providers:aws::default_5_20_0::1e096050-8a4e-4523-a601-c86da658f43d",
+                "propertyDependencies": {
+                    "description": null,
+                    "egress": null,
+                    "ingress": null,
+                    "name": null,
+                    "vpcId": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::s3::aws:ec2/vpc:Vpc::instance-vpc",
+                "custom": true,
+                "id": "vpc-0b8f3176",
+                "type": "aws:ec2/vpc:Vpc",
+                "inputs": {
+                    "__defaults": [
+                        "enableDnsSupport",
+                        "instanceTenancy"
+                    ],
+                    "cidrBlock": "172.31.0.0/16",
+                    "enableDnsHostnames": true,
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-east-1:349935513014:vpc/vpc-0b8f3176",
+                    "assignGeneratedIpv6CidrBlock": false,
+                    "cidrBlock": "172.31.0.0/16",
+                    "defaultNetworkAclId": "acl-97d332eb",
+                    "defaultRouteTableId": "rtb-db2124a5",
+                    "defaultSecurityGroupId": "sg-5216745c",
+                    "dhcpOptionsId": "dopt-43471c39",
+                    "enableClassiclink": false,
+                    "enableClassiclinkDnsSupport": false,
+                    "enableDnsHostnames": true,
+                    "enableDnsSupport": true,
+                    "enableNetworkAddressUsageMetrics": false,
+                    "id": "vpc-0b8f3176",
+                    "instanceTenancy": "default",
+                    "ipv6AssociationId": "",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockNetworkBorderGroup": "",
+                    "ipv6IpamPoolId": "",
+                    "ipv6NetmaskLength": 0,
+                    "mainRouteTableId": "rtb-db2124a5",
+                    "ownerId": "349935513014",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev",
+                "protect": true,
+                "provider": "urn:pulumi:dev::s3::pulumi:providers:aws::default_5_20_0::1e096050-8a4e-4523-a601-c86da658f43d",
+                "propertyDependencies": {
+                    "cidrBlock": null,
+                    "enableDnsHostnames": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::s3::aws:ec2/instance:Instance::Instance-1",
+                "custom": true,
+                "id": "i-0a8a23d36b28d221d",
+                "type": "aws:ec2/instance:Instance",
+                "inputs": {
+                    "__defaults": [
+                        "getPasswordData",
+                        "sourceDestCheck",
+                        "userDataReplaceOnChange"
+                    ],
+                    "ami": "ami-09d3b3274b6c5d4aa",
+                    "getPasswordData": false,
+                    "instanceType": "t2.micro",
+                    "sourceDestCheck": true,
+                    "tags": {
+                        "Name": "Instance-1",
+                        "__defaults": []
+                    },
+                    "userDataReplaceOnChange": false
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000,\"update\":600000000000},\"schema_version\":\"1\"}",
+                    "ami": "ami-09d3b3274b6c5d4aa",
+                    "arn": "arn:aws:ec2:us-east-1:349935513014:instance/i-0a8a23d36b28d221d",
+                    "associatePublicIpAddress": true,
+                    "availabilityZone": "us-east-1a",
+                    "capacityReservationSpecification": {
+                        "capacityReservationPreference": "open",
+                        "capacityReservationTarget": null
+                    },
+                    "cpuCoreCount": 1,
+                    "cpuThreadsPerCore": 1,
+                    "creditSpecification": {
+                        "cpuCredits": "standard"
+                    },
+                    "disableApiStop": false,
+                    "disableApiTermination": false,
+                    "ebsBlockDevices": [],
+                    "ebsOptimized": false,
+                    "enclaveOptions": {
+                        "enabled": false
+                    },
+                    "ephemeralBlockDevices": [],
+                    "getPasswordData": false,
+                    "hibernation": false,
+                    "iamInstanceProfile": "",
+                    "id": "i-0a8a23d36b28d221d",
+                    "instanceInitiatedShutdownBehavior": "stop",
+                    "instanceState": "running",
+                    "instanceType": "t2.micro",
+                    "ipv6AddressCount": 0,
+                    "ipv6Addresses": [],
+                    "keyName": "pulumi_instance",
+                    "launchTemplate": null,
+                    "maintenanceOptions": {
+                        "autoRecovery": "default"
+                    },
+                    "metadataOptions": {
+                        "httpEndpoint": "enabled",
+                        "httpPutResponseHopLimit": 1,
+                        "httpTokens": "optional",
+                        "instanceMetadataTags": "disabled"
+                    },
+                    "monitoring": false,
+                    "networkInterfaces": [],
+                    "outpostArn": "",
+                    "passwordData": "",
+                    "placementGroup": "",
+                    "primaryNetworkInterfaceId": "eni-00090fbf303778f29",
+                    "privateDns": "ip-172-31-22-113.ec2.internal",
+                    "privateDnsNameOptions": {
+                        "enableResourceNameDnsARecord": true,
+                        "enableResourceNameDnsAaaaRecord": false,
+                        "hostnameType": "ip-name"
+                    },
+                    "privateIp": "172.31.22.113",
+                    "publicDns": "ec2-34-224-89-165.compute-1.amazonaws.com",
+                    "publicIp": "34.224.89.165",
+                    "rootBlockDevice": {
+                        "deleteOnTermination": true,
+                        "deviceName": "/dev/xvda",
+                        "encrypted": false,
+                        "iops": 100,
+                        "kmsKeyId": "",
+                        "tags": {},
+                        "throughput": 0,
+                        "volumeId": "vol-0f25ba2340595e65a",
+                        "volumeSize": 8,
+                        "volumeType": "gp2"
+                    },
+                    "secondaryPrivateIps": [],
+                    "securityGroups": [
+                        "default"
+                    ],
+                    "sourceDestCheck": true,
+                    "subnetId": "subnet-5281b31f",
+                    "tags": {
+                        "Name": "Instance-1"
+                    },
+                    "tagsAll": {
+                        "Name": "Instance-1"
+                    },
+                    "tenancy": "default",
+                    "vpcSecurityGroupIds": [
+                        "sg-5216745c"
+                    ]
+                },
+                "parent": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev",
+                "provider": "urn:pulumi:dev::s3::pulumi:providers:aws::default_5_20_0::1e096050-8a4e-4523-a601-c86da658f43d",
+                "propertyDependencies": {
+                    "ami": null,
+                    "instanceType": null,
+                    "tags": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::s3::aws:ec2/subnet:Subnet::public-1",
+                "custom": true,
+                "id": "subnet-5281b31f",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "cidrBlock": "172.31.16.0/20",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": true,
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "vpcId": "vpc-0b8f3176"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-east-1:349935513014:subnet/subnet-5281b31f",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-east-1a",
+                    "availabilityZoneId": "use1-az4",
+                    "cidrBlock": "172.31.16.0/20",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-5281b31f",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": true,
+                    "outpostArn": "",
+                    "ownerId": "349935513014",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-0b8f3176"
+                },
+                "parent": "urn:pulumi:dev::s3::pulumi:pulumi:Stack::s3-dev",
+                "provider": "urn:pulumi:dev::s3::pulumi:providers:aws::default_5_20_0::1e096050-8a4e-4523-a601-c86da658f43d",
+                "propertyDependencies": {
+                    "cidrBlock": null,
+                    "mapPublicIpOnLaunch": null,
+                    "privateDnsHostnameTypeOnLaunch": null,
+                    "vpcId": null
+                }
+            }
+        ]
+    }
+}

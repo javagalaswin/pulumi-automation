@@ -5,12 +5,6 @@
 			"id": "vpc-0b8f3176"
 		},
 		{
-			"type": "aws:ec2/subnet:Subnet",
-			"name": "public-1",
-			"id": "subnet-5281b31f",
-			"properties": ["cidr_block","vpc_id"]
-		},
-		{
 			"type": "aws:ec2/securityGroup:SecurityGroup",
 			"name": "instance-sg",
 			"id": "sg-5216745c"
